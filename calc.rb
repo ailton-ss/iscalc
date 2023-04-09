@@ -1,4 +1,5 @@
-puts "Calculadora"
+puts "#Calculadora"
+puts "Para finalizar digite: q"
 
 def split(operation, symbol)
     operation.split(symbol)
@@ -8,6 +9,12 @@ stop = false
 while !stop
     puts "Digite a operação, exp: 2+2"
     operation = gets.chomp
+    
+    if operation == "q"
+        puts "saindo..."
+        stop = true
+        return
+    end
 
     result = 0
         
@@ -29,5 +36,4 @@ while !stop
 
     puts "Result: #{result}"
     puts "---------------------------"
-    #stop = true
 end
