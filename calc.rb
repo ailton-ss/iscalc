@@ -50,7 +50,18 @@ while !stop
         end
     elsif operation.include? "*"
         operation = split(operation, "*")
-        result = operation[0].to_i * operation[1].to_i
+        percentValue = 0
+        if operation[1].include? '%'
+            value = split(operation[1], "%")
+            if value.length > 0
+                percentValue = value[0]
+            end
+        end
+        if percentValue != 0
+            result = ((operation[0].to_f * percentValue.to_f) / 100)
+        else
+           result = operation[0].to_i * operation[1].to_i
+        end
     elsif operation.include? "/"
         operation = split(operation, "/")
         result = operation[0].to_i / operation[1].to_i
