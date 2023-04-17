@@ -6,6 +6,10 @@ def split(operation, symbol)
     operation.split(symbol)
 end
 
+def sum(value1, value2)
+    value1.to_i + value2.to_i
+end
+
 stop = false
 while !stop
     puts "Digite a operação, exp: 2+2"
@@ -18,8 +22,6 @@ while !stop
         return
     end
 
-    result = 0
-        
     if operation.include? '+'
         operation = split(operation, "+")
         percentValue = 0
@@ -32,7 +34,7 @@ while !stop
         if percentValue != 0
             result = ((operation[0].to_f * percentValue.to_f) / 100) + operation[0].to_f
         else
-           result = operation[0].to_i + operation[1].to_i
+            result = sum(operation[0], operation[1])
         end
     elsif operation.include? "-"
         operation = split(operation, "-")
